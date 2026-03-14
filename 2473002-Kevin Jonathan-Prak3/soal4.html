@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 4 / 10 Maret 2026 - Prak 3
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <form>
+            <table style="border: 3px  solid black" width="330px">
+                <tr>
+                    <td colspan="2">
+                        <h2 style="margin:1px">Form Tambah Data User</h2>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="100">Name</td>
+                    <td>
+                        : <input type="text" name="name" required oninvalid="this.setCustomValidity('Name is required!!!')" oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        : <input type="text" name="address" required oninvalid="this.setCustomValidity('Address is required!!!')" oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        : <input type="email" name="email" required oninvalid=
+                            "if(this.validity.typeMismatch) { this.setCustomValidity('Serakan \'@\' pada alamat email ini. \'' + this.value + '\''); } 
+                                else if(this.validity.valueMissing) { this.setCustomValidity('Harap isi bidang ini'); }" oninput="this.setCustomValidity('')">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Home Page</td>
+                    <td>
+                        : <input type="url" name="homepage">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Birthday</td>
+                    <td>
+                        : <input type="date" name="birthday" placeholder="hh/bb/tttt">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Favorit Color</td>
+                    <td>
+                        : <input type="color" name="color" value="#000000">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>IPK</td>
+                    <td>
+                        : <input type="number" name="ipk" min="0" max="4" step="0.1" value="0">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone Number</td>
+                    <td>
+                        : <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{7,10}" title="Format: ###-####### hingga ###-##########" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Add">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
