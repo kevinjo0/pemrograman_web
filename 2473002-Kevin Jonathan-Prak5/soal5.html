@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 5 / 31 Maret 2026 - Prak 5
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li.satu {
+                float: left;
+                margin-right: 3px;
+            }
+
+            li.news {
+                float: left;
+                margin-right: 3px;
+            }
+
+            a {
+                border-style:dotted;
+                border-color:grey;
+                border-width: 2px;
+                width: 120px;
+                display: block;
+                color: black;
+                padding: 4px;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            a:hover {
+                background-color: black;
+                color: white;
+            }
+
+            li.news:hover ul {
+                display: block;
+            }
+
+            li.news ul {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul>
+            <li class="satu"><a href="#home">Home</a></li>
+            <li class="news"><a href="#news">News</a>
+                <ul>
+                    <li><a href="#sports">Sports</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#movie">Movie</a></li>
+                </ul>
+            </li>
+            <li class="satu"><a href="#contact">Contact</a></li>
+            <li class="satu"><a href="#about">About</a></li>
+        </ul>
+    </body>
+</html>

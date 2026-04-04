@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 1 / 31 Maret 2026 - Prak 5
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            td {
+                position: relative;
+            }
+
+            a {
+                width: 200px;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+            }
+
+            .corner {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                border: 3px solid;
+            }
+
+            .kiri-atas {
+                top: 10px;
+                left: 10px;
+                border-right: none;
+                border-bottom: none;
+                border-color: #FF0000;
+            }
+
+            .kanan-atas {
+                top: 10px;
+                right: 10px;
+                border-left: none;
+                border-bottom: none;
+                border-color: #FF0000;
+            }
+
+            .kiri-bawah {
+                bottom: 10px;
+                left: 10px;
+                border-right: none;
+                border-top: none;
+                border-color: #FF0000;
+            }
+
+            .kanan-bawah {
+                bottom: 10px;
+                right: 10px;
+                border-left: none;
+                border-top: none;
+                border-color: #FF0000;
+            }
+
+            a:hover .corner {
+                border-color: #FF00FF;
+            }
+
+            .star {
+                width: 150px;
+                height: 150px;
+            }
+        </style>
+    </head>
+
+    <body>  
+        <table>
+            <tr>
+                <td>
+                    <a href="#">
+                        <div class="corner kiri-atas"></div>
+                        <div class="corner kanan-atas"></div>
+                        <div class="corner kiri-bawah"></div>
+                        <div class="corner kanan-bawah"></div>
+                        <img src="src/src/star.jpg" class="star">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
