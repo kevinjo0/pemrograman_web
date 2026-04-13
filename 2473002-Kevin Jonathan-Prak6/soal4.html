@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 4 / 07 April 2026 - Prak 6
+-->
+
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .isi {
+                display: inline-block;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 320px;
+            }
+
+            td {
+                border: 1px solid gray;
+                padding: 5px;
+                text-align: center;
+            }
+
+            .label {
+                color: blue;
+                font-weight: bold;
+                text-align: left;
+                font-size: 14px;
+            }
+
+            select {
+                width: 60%;
+                padding: 3px;
+            }
+
+            button {
+                font-weight: bold;
+                padding: 4px;
+                margin: 3px;
+                color: blue;
+            }
+
+            #output {
+                color: gray;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function konversi() {
+                var input_nilai = document.getElementById("input").value;
+                var mode = document.getElementById("pilihan").value;
+                var hasil = document.getElementById("output");
+
+                if (mode === "decimal-biner") {
+                    var num = parseInt(input_nilai);
+                    if (isNaN(num) || num < 0 || num > 255) {
+                        alert("Untuk konversi decimal-biner, input hanya bisa diisi angka 0 s/d 255!");
+                        return;
+                    }
+
+                    var biner = "";
+                    var sisa_bagi;
+                    var nilai_sementara = num;
+
+                    if (nilai_sementara === 0) {
+                        biner = "0";
+                    } else {
+                        while (nilai_sementara > 0) {
+                            sisa_bagi = nilai_sementara % 2;
+                            biner = sisa_bagi + biner;
+                            nilai_sementara = Math.floor(nilai_sementara / 2);
+                        }
+                    }
+
+                    while (biner.length < 8) {
+                        biner = "0" + biner;
+                    }
+
+                    hasil.value = biner;
+
+                } else if (mode === "biner-decimal") {
+                
+                    var valid_biner = /^[01]{8}$/.test(input_nilai); 
+                        if (!valid_biner) {
+                        alert("Untuk konversi biner-decimal, input hanya bisa diisi dengan angka 0 atau 1 sebanyak 8 digit!");
+                        return;
+                    }
+
+                    var desimal = 0;
+                    var panjang_str = input_nilai.length;
+
+                    for (var i = 0; i < panjang_str; i++) {
+                        var bit = parseInt(input_nilai[i]); 
+                        var pangkat = panjang_str - 1 - i; 
+                    
+                    
+                        var multiplier = 1;
+                        for (var j = 0; j < pangkat; j++) {
+                            multiplier *= 2;
+                        }
+
+                        desimal += bit * multiplier;
+                    }
+
+                    hasil.value = desimal;
+                }
+            }
+
+            function reset() {
+                document.getElementById('input').value = "";
+                document.getElementById('output').value = "";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="isi">
+            <table>
+                <tr>
+                    <td class="label">Input :</td>
+                    <td><input type="text" id="input"></td>
+                </tr>
+                <tr>
+                    <td class="label">Output :</td>
+                    <td><input type="text" id="output" readonly></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <select id="pilihan">
+                            <option value="decimal-biner">decimal-biner</option>
+                            <option value="biner-decimal">biner-decimal</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="proses" onclick="konversi()">PROSES</button>
+                        <button class="reset" onclick="reset()">RESET</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

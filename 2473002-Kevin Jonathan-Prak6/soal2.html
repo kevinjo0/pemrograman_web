@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 2 / 07 April 2026 - Prak 6
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            table {
+                border-collapse: collapse;
+                font-size: 25px;
+            }
+
+            td {
+                border: 1px solid #000000;
+                padding: 10px;
+                text-align: center;
+            }
+        </style>
+
+        <script type="text/javascript">
+            window.onload = function() {
+                var input_str;
+                var angka;
+
+                while (true) {
+                    input_str = prompt("A number?");
+                    if (input_str === null) {
+                        break;
+                    }
+
+                    angka = parseInt(input_str);
+                    if (input_str.trim() !== "" && !isNaN(angka)) {
+                        break; 
+                    }
+                }
+                
+                if (angka) {
+                    var output = "<table>";
+                    for (var i = 1; i <= angka; i++) {
+                        let hasil = i * angka;
+                        output += "<tr>";
+                        output += "<td>" + i + "</td>";
+                        output += "<td>x</td>";
+                        output += "<td>" + angka + "</td>";
+                        output += "<td>=</td>";
+                        output += "<td>" + hasil + "</td>";
+                        output += "</tr>";
+                    }
+
+                    output += "</table>";
+                    document.getElementById("table").innerHTML = output;
+                }
+            };
+        </script>
+    </head>
+
+    <body>
+        <div id="table"></div>
+    </body>
+</html>

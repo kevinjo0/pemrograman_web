@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 3 / 07 April 2026 - Prak 6
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+            }
+
+            .isi button {
+                margin-top: 5px;
+                display: block;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            .blok-piramida {
+                background-color: orange;
+                border: 1px solid white; 
+            }
+        </style>
+
+        <script type="text/javascript">
+            function piramida() {
+                var tinggi = parseInt(document.getElementById("input").value);
+
+                if (isNaN(tinggi) || tinggi <= 0) {
+                    alert("Silakan masukkan angka tinggi piramida yang valid (lebih dari 0).");
+                    return;
+                }
+
+                var output = "<table width='800' height='600'>";
+                var total_kolom = (2 * tinggi) - 1;
+                var titik_tengah = tinggi;
+
+                for (var baris = 1; baris <= tinggi; baris++) {
+                    output += "<tr>";
+
+                    var batas_kiri = titik_tengah - (baris - 1);
+                    var batas_kanan = titik_tengah + (baris - 1);
+
+                    for (var kolom = 1; kolom <= total_kolom; kolom++) {
+                        if (kolom >= batas_kiri && kolom <= batas_kanan) {
+                            output += "<td class='blok-piramida'></td>";
+                        } else {
+                            output += "<td></td>";
+                        }
+                    }
+
+                    output += "</tr>";
+                }
+
+                output += "</table>";
+
+                document.getElementById("tempat-piramida").style.display = "inline-block";
+                document.getElementById("tempat-piramida").innerHTML = output;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="isi">
+            Tinggi Piramida : 
+            <input type="number" id="input" min="1">
+            <button onclick="piramida()">proses</button>
+        </div>
+        </br>
+        <div id="tempat-piramida" class="hasil"></div>
+    </body>
+</html>

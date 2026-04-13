@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 1 / 07 April 2026 - Prak 6
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif; 
+            }
+
+            .input {
+                margin-bottom: 8px;
+            }
+
+            .input input {
+                width: 100px;
+            }
+
+            button {
+                margin-bottom: 8px;
+            }
+
+            table {
+                border-collapse: collapse;
+                text-align: center;
+                font-size: 25px;
+            }
+
+            table td {
+                border: 1px solid black;
+                width: 50px;
+                height: 40px;
+            }
+
+            table td.hasil {
+                width: 60px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function hitung() {
+                var str_angka1 = document.getElementById("input-angka1").value;
+                var str_angka2 = document.getElementById("input-angka2").value;
+
+                var angka1 = parseInt(str_angka1);
+                var angka2 = parseInt(str_angka2);
+
+                var cek_angka1 = isNaN(angka1);
+                var cek_angka2 = isNaN(angka2);
+
+                if (cek_angka1 && cek_angka2) {
+                    alert("angka pertama dan kedua harus angka.");
+                } else if (cek_angka1) {
+                    alert("angka pertama bukan angka.");
+                } else if (cek_angka2) {
+                    alert("angka kedua harus angka.");
+                } else {
+                    let penjumlahan = angka1 + angka2;
+                    let pengurangan = angka1 - angka2;
+
+                    document.getElementById("tambah1").innerHTML = angka1;
+                    document.getElementById("tambah2").innerHTML = angka2;
+                    document.getElementById("penambahan").innerHTML = penjumlahan;
+
+                    document.getElementById("kurang1").innerHTML = angka1;
+                    document.getElementById("kurang2").innerHTML = angka2;
+                    document.getElementById("pengurangan").innerHTML = pengurangan;
+                }
+            }
+    </script>
+    </head>
+
+    <body>
+        <div>
+            <div class="input">
+                Angka Pertama : 
+                <input type="text" id="input-angka1">
+            </div>
+            <div class="input">
+                Angka Kedua : 
+                <input type="text" id="input-angka2">
+            </div>
+            <button onclick="hitung()">Count</button>
+            <table>
+                <tr>
+                    <td id="tambah1"></td>
+                    <td>+</td>
+                    <td id="tambah2"></td>
+                    <td>=</td>
+                    <td id="penambahan" class="hasil"></td>
+                </tr>
+                <tr>
+                    <td id="kurang1"></td>
+                    <td>-</td>
+                    <td id="kurang2"></td>
+                    <td>=</td>
+                    <td id="pengurangan" class="hasil"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
