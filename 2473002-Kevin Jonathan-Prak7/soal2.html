@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 2 / 14 April 2026 - Prak 7
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            body {
+                font-family: "Times New Roman", Times, serif;       
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid white;
+                padding: 8px;
+                text-align: left;
+                font-size: 16px;
+            }
+
+            th {
+                background-color: #9bb097;
+            }
+
+            .biru {
+                background-color: #92bdf6;
+            }
+
+            .orange {
+                background-color: #f6ba92;
+            }
+
+            .row-hover {
+                background-color: #CCFFAA;
+            }
+        </style>
+
+        <script>
+            function changeRowStyle(rowElement, targetClassName) {
+                rowElement.className = targetClassName;
+            }
+        </script>
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Programming Language</th>
+                    <th>Ratings</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="biru" onmouseover="changeRowStyle(this, 'row-hover')" onmouseout="changeRowStyle(this, 'biru')">
+                    <td>1</td>
+                    <td>C</td>
+                    <td>18.058%</td>
+                </tr>
+
+                <tr class="orange" onmouseover="changeRowStyle(this, 'row-hover')" onmouseout="changeRowStyle(this, 'orange')">
+                    <td>2</td>
+                    <td>Java</td>
+                    <td>18.051%</td>
+                </tr>
+                
+                <tr class="biru" onmouseover="changeRowStyle(this, 'row-hover')" onmouseout="changeRowStyle(this, 'biru')">
+                    <td>3</td>
+                    <td>C++</td>
+                    <td>9.707%</td>
+                </tr>
+
+                <tr class="orange" onmouseover="changeRowStyle(this, 'row-hover')" onmouseout="changeRowStyle(this, 'orange')">
+                    <td>4</td>
+                    <td>PHP</td>
+                    <td>9.662%</td>
+                </tr>
+
+                <tr class="biru" onmouseover="changeRowStyle(this, 'row-hover')" onmouseout="changeRowStyle(this, 'biru')">
+                    <td>5</td>
+                    <td>(Visual) Basic</td>
+                    <td>6.392%</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

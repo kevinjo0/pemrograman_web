@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 3 / 14 April 2026 - Prak 7
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .isi {
+                border: 1px solid black;
+                padding: 8px;
+                display: inline-block;
+            }
+
+            table {
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 5px;
+            }
+
+            .input {
+                font-family: monospace;
+                font-size: 20px;
+            }
+        </style>
+
+        <script>
+            let dataArray = [];
+
+            function tambahData() {
+                var input = document.getElementById('dataInput');
+                var nilai = parseFloat(input.value);
+            
+                if (!isNaN(nilai)) {
+                    dataArray.push(nilai);
+                    input.value = "";
+                    input.focus();
+                } else {
+                    alert("Masukkan angka yang valid.");
+                }
+            }
+
+            function prosesOperasi() {
+                var operasi = document.getElementById('pilih').value;
+                var output = document.getElementById('hasilOutput');
+
+                if (dataArray.length === 0 && operasi !== 'hapus' && operasi !== '') {
+                    output.value = "Array Kosong";
+                    return;
+                }
+
+                if (operasi === 'display') {
+                    output.value = dataArray.join(', ');
+                } 
+                else if (operasi === 'count') {
+                    output.value = dataArray.length;
+                } 
+                else if (operasi === 'sum') {
+                    let total = 0;
+                    for (let angka of dataArray) { total += angka; }
+                    output.value = total;
+                } 
+                else if (operasi === 'average') {
+                    let total = 0;
+                    for (let angka of dataArray) { total += angka; }
+                    output.value = total / dataArray.length;
+                } 
+                else if (operasi === 'max') {
+                    output.value = Math.max(...dataArray);
+                } 
+                else if (operasi === 'min') {
+                    output.value = Math.min(...dataArray);
+                } 
+                else if (operasi === 'ganjil') {
+                    let hasil = dataArray.filter(n => n % 2 !== 0);
+                    output.value = hasil.join(', ');
+                } 
+                else if (operasi === 'genap') {
+                    let hasil = dataArray.filter(n => n % 2 === 0);
+                    output.value = hasil.join(', ');
+                } 
+                else if (operasi === 'hapus') {
+                    dataArray = [];
+                    output.value = "Data dihapus";
+                    document.getElementById('pilih').value = "";
+                }
+                else {
+                    output.value = "";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="isi">
+            <table>
+                <tr>
+                    <td class="input">Data</td>
+                    <td><input type="text" id="dataInput" size="22"></td>
+                </tr>
+
+                <tr>
+                    <td><button onclick="tambahData()">Add</button></td>
+                    <td>
+                        <select id="pilih" onchange="prosesOperasi()">
+                            <option value="">Pilih Operasi</option>
+                            <option value="display">Display</option>
+                            <option value="count">Count</option>
+                            <option value="sum">Sum</option>
+                            <option value="average">Average</option>
+                            <option value="max">Max</option>
+                            <option value="min">Min</option>
+                            <option value="ganjil">Ganjil</option>
+                            <option value="genap">Genap</option>
+                            <option value="hapus">Hapus</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="input">Hasil</td>
+                    <td><input type="text" id="hasilOutput" readonly></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

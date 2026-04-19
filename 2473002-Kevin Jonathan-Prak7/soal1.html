@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 1 / 14 April 2026 - Prak 7
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <style>
+            body {        
+                font-family: "Times New Roman", Times, serif; 
+            }
+        
+            .isi {
+                width: 380px;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 2px;
+                vertical-align: top;
+            }
+
+            .label {
+                width: 70px;
+            }
+
+            .separator {
+                width: 10px;
+            }
+
+            #inputJudul {
+                width: 100%;
+                box-sizing: border-box;
+                border: 1px solid gainsboro;
+                padding: 3px;
+            }
+
+            .input textarea {
+                width: 100%;
+                height: 100px;
+                box-sizing: border-box;
+                border: 1px solid gainsboro;
+                padding: 5px;
+                font-family: monospace; 
+                font-size: 13px;
+            }
+
+            .box-isi {
+                text-align: right;
+            }
+
+            #text {
+                width: 55px;
+                text-align: right;
+                border: 1px solid gainsboro;
+                padding: 4px;
+                font-size: 12px;
+                font-family: sans-serif;
+            }
+        </style>
+
+        <script>
+            function call_onKeyPress(ob) {
+                var maxChars = 256;
+                var obval = ob.value;
+            
+                if (obval.length > maxChars) {
+                    ob.value = obval.substr(0, maxChars);
+                    obval = ob.value;
+                }
+    
+                document.getElementById("txt2").value = obval.length + "/" + maxChars;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="isi">
+            <table>
+                <tr>
+                    <td class="label">Judul</td>
+                    <td class="separator">:</td>
+                    <td class="input">
+                        <input type="text" id="inputJudul">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="label">Deskripsi</td>
+                    <td class="separator">:</td>
+                    <td class="input">
+                        <textarea onkeyup="call_onKeyPress(this)" onkeydown="call_onKeyPress(this)"></textarea>
+                    
+                        <div class="box-isi">
+                            <input type="text" id="txt2" value="0/256" readonly>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
