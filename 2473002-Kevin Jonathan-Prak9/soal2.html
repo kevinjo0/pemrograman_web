@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 2 / 5 Mei 2026 - Prak 9
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .isi {
+                font-family: serif;
+                font-size: 15px;
+            }
+
+            .nama {
+                margin: 5px;
+            }
+
+            .underline {
+                text-decoration: underline;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#add").click(function () {
+                    var newName = $("#input").val();
+                    if (newName !== "") {
+                        $("<div class='nama'>" + newName + "</div>").appendTo("#list");
+                        $("#input").val(""); 
+                    }
+                });
+
+                $("#search").click(function () {
+                    var searchStr = $("#input").val();
+                    $(".nama").removeClass("underline");
+
+                    if (searchStr !== "") {
+                        $(".nama:contains('" + searchStr + "')").addClass("underline");
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="isi">
+            <input type="text" id="input">
+            <button id="add">Add</button>
+            <button id="search">Search</button>
+
+            <div id="list">
+                <div class="nama">John Resig</div>
+                <div class="nama">George Martin</div>
+                <div class="nama">Malcom John Sinclair</div>
+                <div class="nama">J. Ohn</div>
+            </div>
+        </div>
+    </body>
+</html>

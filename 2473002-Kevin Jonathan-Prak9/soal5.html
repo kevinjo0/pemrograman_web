@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 5 / 5 Mei 2026 - Prak 9
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            }
+
+            #input {
+                width: 250px;
+                padding: 5px;
+            }
+
+            .list {
+                line-height: 1.5;
+            }
+
+            .highlight {
+                color: red;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#input").keyup(function () {
+                    var searchWord = $(this).val();
+
+                    $(".company").removeClass("highlight");
+
+                    if (searchWord !== "") {
+                        $(".company:contains('" + searchWord + "')").addClass("highlight");
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="input">
+        <div class="list">
+            <div class="company">Sun Microsystem</div>
+            <div class="company">Apache Software Foundation</div>
+            <div class="company">Oracle Coorporation</div>
+            <div class="company">International Bussiness Machines</div>
+            <div class="company">Microsoft Coorporation</div>
+            <div class="company">Apple Inc</div>
+            <div class="company">Sap Ag</div>
+            <div class="company">Accenture</div>
+            <div class="company">Computer Sciences Coorporation</div>
+            <div class="company">Google</div>
+            <div class="company">Softbank</div>
+            <div class="company">Yahoo</div>
+        </div>
+    </body>
+</html>

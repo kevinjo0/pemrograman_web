@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 4 / 5 Mei 2026 - Prak 9
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            td {
+                text-align: center;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".header").change(function () {
+                    var flag = $(this).prop("checked");
+
+                    if (flag) {
+                        $("input.body:checkbox").prop("checked", true);
+                    } else {
+                        $("input.body:checkbox").prop("checked", false);
+                    }
+                });
+
+                $(".body").change(function () {
+                    if ($("input.body:checkbox:checked").length !== $("input.body:checkbox").length) {
+                        $(".header").prop("checked", false);
+                    } else {
+                        $(".header").prop("checked", true);
+                    }
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <table border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="50" align="center">
+                    <input class="header" type="checkbox"/><br />
+                    <hr/>
+                    <input class="body" type="checkbox"/><br />
+                    <input class="body" type="checkbox"/><br />
+                    <input class="body" type="checkbox"/><br />
+                    <input class="body" type="checkbox"/><br />
+                    <input class="body" type="checkbox"/><br />
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 3 / 5 Mei 2026 - Prak 9
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            div.box {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+                float: left;
+                border: 2px blue solid;
+                text-align: center;
+            }
+
+            .change {
+                clear: both;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("div.box").click(function () {
+                    $("div.box").removeAttr("id").css("background-color", "");
+
+                    $(this).css("background-color", "red").attr("id", "merah");
+                });
+
+                $("button").click(function () {
+                    $("div.box").each(function (index, domEle) {
+                        if ($(domEle).attr("id") === "merah") {
+                            return false;
+                        }
+                        $(domEle).css("background-color", "yellow");
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="change">
+            <button>Change colors</button>
+        </div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 1 / 5 Mei 2026 - Prak 9
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            .menu {
+                font-family: Arial, sans-serif;
+            }
+
+            .isi {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            .item {
+                float: left;
+                background-color: #ff1493;
+                color: white;
+                width: 150px;
+                padding: 3px;
+                margin-right: 5px;
+                border: 1px solid #ff1493;
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            .item ol {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 5px;
+                background-color: white;
+                border: 1px solid #ff1493;
+                color: black;
+            }
+
+            .item ol li {
+                padding: 5px;
+            }
+
+            .item ol li:hover {
+                text-decoration: underline;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("li.item ol").hide();
+
+                $("li.item").hover(
+                    function () {
+                        $(this).find("ol").show();
+                    },
+                    function () {
+                        $(this).find("ol").hide();
+                    }
+                );
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="menu">
+            <ol class="isi">
+                <li class="item">jQuery
+                    <ol>
+                        <li>Download</li>
+                        <li>Documentation</li>
+                        <li>Blog</li>
+                    </ol>
+                </li>
+                <li class="item">Community
+                    <ol>
+                        <li>Mailing List</li>
+                        <li>Tutorials</li>
+                        <li>Demos</li>
+                        <li>Plugins</li>
+                    </ol>
+                </li>
+                <li class="item">Development
+                    <ol>
+                        <li>Source Code</li>
+                        <li>Bug Tracking</li>
+                        <li>Recent Changes</li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </body>
+</html>
