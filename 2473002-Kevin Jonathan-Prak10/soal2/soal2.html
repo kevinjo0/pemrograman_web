@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 2 / 12 Mei 2026 - Prak 10
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                font-family: "Times New Roman", Times, serif;
+                margin: 20px;
+            }
+            
+            .tabel {
+                border-collapse: collapse;
+                width: 350px;
+                margin-bottom: 15px;
+            }
+
+            .tabel td {
+                border: 1px solid #999;
+                padding: 5px;
+            }
+
+            button {
+                padding: 5px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            #hasil {
+                display: none; 
+            }
+            
+            .main-header {
+                text-align: center;
+                margin-bottom: 5px;
+                width: 650px;                
+            }
+            
+            .main-header a {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            hr.thick-line {
+                border: none;
+                border-top: 2px solid #666;
+                margin-bottom: 15px;       
+                width: 650px; 
+                margin-left: 0;
+            }         
+
+            hr.thin-line {
+                border: none;
+                border-top: 1px solid #999;
+                margin-top: 30px;
+                margin-bottom: 5px;    
+                width: 650px; 
+                margin-left: 0;          
+            }
+
+            .article {
+                margin-bottom: 25px;
+            }
+            
+            .meta {
+                margin-bottom: 10px;
+            }
+
+            .content-text {
+                margin-bottom: 10px;
+                line-height: 1.4;
+                width: 650px;
+                text-align: left;
+            }
+
+            a {
+                color: blue;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#look").click(function() {
+                    $.ajax({
+                        url: "SIJson.txt",
+                        dataType: "text",
+                        success: function(rawText) {
+                            let cleanText = rawText.trim();
+                            if(cleanText.endsWith(";")) {
+                                cleanText = cleanText.slice(0, -1);
+                            }
+                        
+                            let data = JSON.parse(cleanText);
+                            
+                            $("#info").hide();
+                            $("#look").hide();
+
+                            let htmlContent = `
+                                <div class="main-header">
+                                    <a href="${data.link}" target="_blank">${data.title}</a>
+                                </div>
+                                <hr class="thick-line">
+                            `;
+
+                            $.each(data.items, function(index, item) {
+                                htmlContent += `
+                                    <div class="article">
+                                        <div class="article-title">
+                                            <a href="${item.link}" target="_blank">${item.title}</a>
+                                        </div>
+                                        <div class="meta">By : ${item.author} / ${item.published}</div>
+                                        <div class="content-text">${item.description}</div>
+                                        <div class="tags-info">Universitas : <a href="${item.universitas.m}" target="_blank">Click Here</a></div>
+                                        <div class="tags-info">Tag(s) : ${item.tags}</div>
+                                    </div>
+                                `;
+                            });
+
+                            htmlContent += `
+                                <hr class="thin-line">
+                                <div>&copy;${data.generator}</div>
+                            `;
+
+                            $("#hasil").html(htmlContent).show();
+                        },
+                        error: function() {
+                            alert("Gagal memuat file SIJson.txt. Pastikan dibuka menggunakan Live Server/Localhost.");
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <table class="tabel" id="info">
+            <tbody>
+                <tr><td>Title</td></tr>
+                <tr><td>Content</td></tr>
+                <tr><td>Generator</td></tr>
+            </tbody>
+        </table>
+        <button id="look">Look</button>
+        
+        <div id="hasil"></div>
+    </body>
+</html>

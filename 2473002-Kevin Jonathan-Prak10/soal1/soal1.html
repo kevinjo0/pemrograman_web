@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+Nama        : Kevin Jonathan
+NRP         : 2473002
+PRAKTIKUM   : SOAL 1 / 12 Mei 2026 - Prak 10
+-->
+
+<html>
+    <head>
+        <title>2473002 - Kevin Jonathan</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                margin: 20px;
+            }
+
+            h3 {
+                color: #333;
+                max-width: 500px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .input {
+                border: 1px solid #000;
+                padding: 15px;
+                width: 300px;
+                margin-bottom: 20px;
+            }
+
+            #search {
+                margin-top: 5px; 
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 450px;
+                text-align: center;
+            }
+
+            th, td {
+                border: 1px solid #000;
+            }
+
+            th {
+                background-color: black;
+                color: white;
+            }
+        </style>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#search").click(function() {
+                    let kelas = $(":radio[name='kelas']:checked").val();
+                    let url = "";
+
+                    if (kelas === "All") {
+                        url = "nilai.js";
+                    } else if (kelas === "A") {
+                        url = "nilaiA.js";
+                    } else if (kelas === "B") {
+                        url = "nilaiB.js";
+                    }
+
+                    $.getJSON(url, function(data) {
+                        let tableBody = $("#tabel tbody");
+                        tableBody.empty();
+
+                        $.each(data.nilai, function(index, mhs) {
+                            let baris = `<tr>
+                                <td>${mhs.nrp}</td>
+                                <td>${mhs.nama}</td>
+                                <td>${mhs.kelas}</td>
+                                <td>${mhs.nilaiakhir}</td>
+                            </tr>`;
+                            tableBody.append(baris);
+                        });
+
+                        $("#tabel tbody tr:even").css("background-color", "#FFFFCC");
+                        $("#tabel tbody tr:odd").css("background-color", "#CCFFAA");
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <h3>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemograman Web SI Tahun Ajaran 2023/2024</h3>
+        
+        <div class="input">
+            <input type="radio" name="kelas" value="All" checked> All <br>
+            <input type="radio" name="kelas" value="A"> Kelas A <br>
+            <input type="radio" name="kelas" value="B"> Kelas B <br>
+            <button id="search">Search</button>
+        </div>
+
+        <table id="tabel">
+            <thead>
+                <tr>
+                    <th>NRP</th>
+                    <th>NAMA</th>
+                    <th>KELAS</th>
+                    <th>NILAI AKHIR</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </body>
+</html>
